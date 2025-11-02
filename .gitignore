@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+
+# swerv
+synthesizer/swerv/configs/snapshots
+
+# synth
+swerv/synth/design_lib
