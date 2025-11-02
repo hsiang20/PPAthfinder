@@ -1,0 +1,56 @@
+Information: Propagating switching activity (high effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort high
+Design : rast
+Version: S-2021.06-SP5-4
+Date   : Sun Nov  2 01:27:56 2025
+****************************************
+
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/users/hsiangc/CS224W/synthesizer/271_test/lib/NangateOpenCellLibrary.db)
+
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+rast                   1K_hvratio_1_4    NangateOpenCellLibrary
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =   3.9557 mW   (81%)
+  Net Switching Power  = 923.8432 uW   (19%)
+                         ---------
+Total Dynamic Power    =   4.8795 mW  (100%)
+
+Cell Leakage Power     = 535.3124 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       3.1408e+03           68.1367        1.8867e+05        3.3976e+03  (  62.75%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational    814.8948          855.7117        3.4664e+05        2.0173e+03  (  37.25%)
+--------------------------------------------------------------------------------------------------
+Total          3.9556e+03 uW       923.8484 uW     5.3531e+05 nW     5.4148e+03 uW
+1
