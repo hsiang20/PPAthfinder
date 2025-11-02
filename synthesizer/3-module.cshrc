@@ -4,9 +4,6 @@
 
 echo "Loading environment variables..."
 
-
-
-
 module load base
 module load genesis2
 module load lc
@@ -25,6 +22,9 @@ module load cx # Custom Explorer Waveform Viewer
 # module load synopsys_pdk # load env for synopsys 90nm PDK (HLS Centos Update)
 module load matlab/caddy
 module load incisive
+
+### SweRV env
+setenv RV_ROOT /home/users/hsiangc/CS224W/PPAthfinder/synthesizer/swerv
 
 ### Queue If Licenses Are Unavailable
 setenv SNPSLMD_QUEUE true
