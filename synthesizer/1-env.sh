@@ -1,3 +1,0 @@
-kinit
-aklog
-tcsh
