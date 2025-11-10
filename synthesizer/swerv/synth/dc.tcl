@@ -42,15 +42,16 @@ set dw_lib     $SYN
 set sym_lib    $OPENCELL_45
 set target_lib $OPENCELL_45
 
-set search_path [list ./ ../design/ $dw_lib $target_lib $sym_lib ../design/include ../configs/snapshots/default]
+set design_snapshot [getenv "CONFIG_SNAPSHOT_NAME"]
+
+set search_path [list ./ ../design/ $dw_lib $target_lib $sym_lib ../design/include/ ../configs/snapshots/$design_snapshot]
 
 ###################
 # Read Design
 ###################
 
-analyze -library design_lib -format sverilog [glob ${RUNDIR}/configs/snapshots/default/common_defines.vh \
+analyze -library design_lib -format sverilog [glob  ${RUNDIR}/configs/snapshots/$design_snapshot/common_defines.vh \
                                                     ${RUNDIR}/design/include/*.sv \
-                                                    ${RUNDIR}/design/dbg/*.sv \
                                                     ${RUNDIR}/design/ifu/*.sv \
                                                     ${RUNDIR}/design/dec/*.sv \
                                                     ${RUNDIR}/design/exu/*.sv \
@@ -58,6 +59,7 @@ analyze -library design_lib -format sverilog [glob ${RUNDIR}/configs/snapshots/d
                                                     ${RUNDIR}/design/lsu/*.sv \
                                                     ${RUNDIR}/design/dmi/*.v  \
                                                     ${RUNDIR}/design/dmi/*.sv \
+                                                    ${RUNDIR}/design/dbg/*.sv \
                                                     ${RUNDIR}/design/lib/*.sv \
                                                     ${RUNDIR}/design/*.sv]
 elaborate ${DESIGN_TARGET} -architecture verilog -library design_lib
@@ -90,7 +92,7 @@ set_input_delay -clock $CLK 0 screen_RnnnnS
 set_input_delay -clock $CLK 0 subSample_RnnnnU
 
 # set target die area
-set_max_area $TARGET_AREA
+# set_max_area $TARGET_AREA
 
 # set DC don't touch reset network
 remove_driving_cell $RST
@@ -101,8 +103,11 @@ set_dont_touch_network $RST
 ##########################################
 # Synthesize Design (Optimize for Timing)
 ##########################################
-set_optimize_registers true -design ${DESIGN_TARGET}
-compile_ultra -retime -timing_high_effort_script
+# set_optimize_registers true -design ${DESIGN_TARGET}
+set_option -disable_retiming true
+# compile_ultra -retime -timing_high_effort_script
+compile
+
 ##########################
 # Analyze Design 
 ##########################

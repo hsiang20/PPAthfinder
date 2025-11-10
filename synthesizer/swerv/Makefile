@@ -26,7 +26,7 @@ endif
 
 ifeq ($(DESIGN_NAME), swerv_wrapper)
   TOP_MODULE ?= swerv_wrapper
-  includes = -I${RV_ROOT}/design/include -I${RV_ROOT}/design/lib -I${RV_ROOT}/design/dmi -I${RV_ROOT}/configs/snapshots/default
+  includes = -I${RV_ROOT}/design/include -I${RV_ROOT}/design/lib -I${RV_ROOT}/design/dmi -I${RV_ROOT}/configs/snapshots/default/
 endif
 
 ############### For Verilog ################
@@ -78,8 +78,7 @@ VERILOG_SIMULATION_FLAGS := 	$(VERILOG_SIMULATION_FLAGS) 			\
 DESIGN_TARGET = $(DESIGN_NAME)
 
 # The target clock period and area in library units (nS) (um^2). 45 
-CLK_PERIOD=20; 
-TARGET_AREA=10000000;
+CLK_PERIOD=10000; 
 
 # flags for dc/icc
 SYNTH_HOME	= $(DESIGN_HOME)/synth
@@ -91,7 +90,6 @@ SET_SYNTH_PARAMS = 	set DESIGN_HOME $(DESIGN_HOME); 	\
 			set RUNDIR $(RUNDIR); 			\
 			set DESIGN_TARGET $(DESIGN_TARGET); 	\
 			set CLK_PERIOD  $(CLK_PERIOD); 				\
-			set TARGET_AREA $(TARGET_AREA);	
 
 DC_COMMAND_STRING = "$(SET_SYNTH_PARAMS) source -echo -verbose $(SYNTH_HOME)/dc.tcl"
 
