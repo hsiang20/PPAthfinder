@@ -1,0 +1,22 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP5-4
+Date:        Mon Nov 10 02:12:50 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      8
+    Unconnected ports (LINT-28)                                     8
+--------------------------------------------------------------------------------
+
+Warning: In design 'top', port 'input_data[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'top', port 'input_data[8]' is not connected to any nets. (LINT-28)
+1

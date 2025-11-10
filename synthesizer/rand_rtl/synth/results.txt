@@ -1,0 +1,9 @@
+5
+1
+5
+1
+Total Dynamic Power    =   0.0000         
+                 Internal         Switching           Leakage            Total
+Total              0.0000            0.0000            0.0000               NA        
+Cell Leakage Power     =   0.0000 
+Total cell area:                     0.000000
