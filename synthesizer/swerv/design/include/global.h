@@ -48,4 +48,4 @@ localparam SB_BUS_TAG      = `RV_SB_BUS_TAG;
    
 localparam IFU_BUS_TAG     = `RV_IFU_BUS_TAG;
 
-localparam LSU_WRBUF_DEPTH = 32
+localparam LSU_WRBUF_DEPTH = 32;

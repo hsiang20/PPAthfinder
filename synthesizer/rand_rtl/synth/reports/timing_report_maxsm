@@ -1,0 +1,42 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: S-2021.06-SP5-4
+Date   : Mon Nov 10 02:12:51 2025
+****************************************
+
+Operating Conditions: nom_pvt   Library: dw_foundation.sldb
+Wire Load Model Mode: top
+
+  Startpoint: input_data[7]
+              (input port)
+  Endpoint: output_data[15]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                  0.0000     0.0000 r
+  input_data[7] (in)                                    0.0000     0.0000 r
+  add_12/B_7 (*ADD_UNS_OP_8_8_8)                        0.0000     0.0000 r
+  add_12/*cell*6/B[7] (DW01_add_width8)                 0.0000     0.0000 r
+  ...
+  add_12/*cell*6/SUM[7] (DW01_add_width8)               0.0000     0.0000 r
+  add_12/Z_7 (*ADD_UNS_OP_8_8_8)                        0.0000     0.0000 r
+  add_14/B_7 (*ADD_UNS_OP_8_8_8)                        0.0000     0.0000 r
+  add_14/*cell*12/B[7] (DW01_add_width8)                0.0000     0.0000 r
+  ...
+  add_14/*cell*12/SUM[7] (DW01_add_width8)              0.0000     0.0000 r
+  add_14/Z_7 (*ADD_UNS_OP_8_8_8)                        0.0000     0.0000 r
+  output_data[15] (out)                                 0.0000     0.0000 r
+  data arrival time                                                0.0000
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

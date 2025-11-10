@@ -12,22 +12,11 @@ RUNDIR := $(realpath ./)
 # this line enables a local Makefile to override values of the main makefile
 -include Makefile.local
 
-RTL_FILES := design/flist.vlog
-DESIGN_NAME := swerv_wrapper
+RTL_FILES = rtl/vlog.vf
 
-ifndef DESIGN_NAME
-  DESIGN_NAME:=rast
-  $(warning WARNING: Running with default design.  DESIGN_NAME=$(DESIGN_NAME))
-endif
+DESIGN_NAME := top
+TOP_MODULE := top
 
-ifeq ($(DESIGN_NAME), rast)
-  TOP_MODULE ?= top_rast
-endif
-
-ifeq ($(DESIGN_NAME), swerv_wrapper)
-  TOP_MODULE ?= swerv_wrapper
-  includes = -I${RV_ROOT}/design/include -I${RV_ROOT}/design/lib -I${RV_ROOT}/design/dmi -I${RV_ROOT}/configs/snapshots/default/
-endif
 
 ############### For Verilog ################
 ############################################
@@ -78,7 +67,8 @@ VERILOG_SIMULATION_FLAGS := 	$(VERILOG_SIMULATION_FLAGS) 			\
 DESIGN_TARGET = $(DESIGN_NAME)
 
 # The target clock period and area in library units (nS) (um^2). 45 
-CLK_PERIOD=10000; 
+CLK_PERIOD=5; 
+TARGET_AREA=100000;
 
 # flags for dc/icc
 SYNTH_HOME	= $(DESIGN_HOME)/synth
@@ -90,6 +80,7 @@ SET_SYNTH_PARAMS = 	set DESIGN_HOME $(DESIGN_HOME); 	\
 			set RUNDIR $(RUNDIR); 			\
 			set DESIGN_TARGET $(DESIGN_TARGET); 	\
 			set CLK_PERIOD  $(CLK_PERIOD); 				\
+			set TARGET_AREA $(TARGET_AREA);	
 
 DC_COMMAND_STRING = "$(SET_SYNTH_PARAMS) source -echo -verbose $(SYNTH_HOME)/dc.tcl"
 
@@ -133,7 +124,6 @@ $(DC_LOG): $(SYNTH_HOME)/dc.tcl
 	cd $(SYNTH_RUNDIR); dc_shell-t -64bit -x $(DC_COMMAND_STRING) 2>&1 | tee -i $(DC_LOG)
 
 
-
 # Cleanup rules:
 #####################
 .PHONY: clean_dc clean_reports clean cleanall 
@@ -152,7 +142,7 @@ clean_reports:
 	rm -fr $(SYNTH_RUNDIR)/results.txt	
 	cd $(SYNTH_RUNDIR); rm -fr alib-52 command.log default.svf netlist/
 
-clean: clean_dc 
+clean: clean_dc
 	@echo ""
 	@echo Cleanning old files, bineries and garbage
 	@echo ==================================================
