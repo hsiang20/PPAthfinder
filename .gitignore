@@ -214,3 +214,6 @@ synthesizer/swerv/configs/snapshots
 # synth
 design_lib/
 
+
+# out
+out/
